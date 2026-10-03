@@ -1,0 +1,16 @@
+[Unit]
+Description=DoAide PDF API
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/doaide-pdf/api
+Environment=PATH=/opt/doaide-pdf/api/venv/bin:/usr/local/bin:/usr/bin
+ExecStart=/opt/doaide-pdf/api/venv/bin/uvicorn main:app --host 172.18.0.1 --port 3048
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

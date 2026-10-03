@@ -1,0 +1,15 @@
+[Unit]
+Description=DoAide PDF Web
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/doaide-pdf/web
+ExecStart=/usr/bin/npx serve -s dist -l tcp://172.18.0.1:3049
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
