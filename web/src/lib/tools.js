@@ -11,6 +11,7 @@ import {
   FaCode,
   FaListOl,
   FaInfoCircle,
+  FaSortNumericDown,
 } from "react-icons/fa";
 
 const tools = [
@@ -253,6 +254,25 @@ const tools = [
       title: "Add Page Numbers to PDF Free Online | DoAide PDF",
       description:
         "Add page numbers to any PDF file for free. Choose position and starting number.",
+    },
+  },
+  {
+    id: "reorder",
+    name: "Page Reorder",
+    description: "Rearrange pages in your PDF in any order",
+    icon: FaSortNumericDown,
+    path: "/reorder",
+    color: "bg-amber-500",
+    api: "/api/reorder",
+    accepts: ".pdf",
+    multiple: false,
+    fields: [
+      { name: "order", label: "New page order", placeholder: "e.g. 3,1,2,4", required: true },
+    ],
+    seo: {
+      title: "Reorder PDF Pages Online Free | DoAide PDF",
+      description:
+        "Rearrange and reorder PDF pages in any order for free. No login required. Fast and secure.",
     },
   },
   {

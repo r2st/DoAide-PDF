@@ -1,7 +1,7 @@
-from fastapi import APIRouter, UploadFile, File, Form
+from fastapi import APIRouter, UploadFile, File, Form, HTTPException
 from fastapi.responses import FileResponse
 from utils import save_upload, cleanup, PDF_TYPES
-from services.transform_service import rotate_pdf, add_watermark, add_page_numbers
+from services.transform_service import rotate_pdf, add_watermark, add_page_numbers, reorder_pages
 
 router = APIRouter(prefix="/api", tags=["transform"])
 
@@ -35,6 +35,22 @@ async def watermark(
     try:
         output = add_watermark(path, text, opacity, font_size)
         return FileResponse(output, filename="watermarked.pdf", media_type="application/pdf")
+    finally:
+        cleanup(path)
+
+
+@router.post("/reorder")
+async def reorder(
+    file: UploadFile = File(..., description="PDF file to reorder"),
+    order: str = Form(..., description="New page order, e.g. 3,1,2,4"),
+):
+    page_order = [int(p.strip()) for p in order.split(",")]
+    path = await save_upload(file, PDF_TYPES)
+    try:
+        output = reorder_pages(path, page_order)
+        return FileResponse(output, filename="reordered.pdf", media_type="application/pdf")
+    except ValueError as e:
+        raise HTTPException(400, str(e))
     finally:
         cleanup(path)
 

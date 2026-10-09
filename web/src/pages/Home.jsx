@@ -56,6 +56,51 @@ export default function Home() {
             ],
           })}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: "Free PDF Tools",
+            itemListElement: tools.map((tool, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: tool.name,
+              url: `https://pdf.doaide.com${tool.path}`,
+            })),
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "Are DoAide PDF tools really free?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Yes, all tools are 100% free with no hidden fees, no premium tiers, and no usage limits.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Do I need to create an account?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "No. All tools work without login or registration. No personal data is collected.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Are my files secure?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Yes. Files are processed on our servers and deleted immediately after you download the result. We never store, read, or share your documents.",
+                },
+              },
+            ],
+          })}
+        </script>
       </Helmet>
 
       <section className="py-16 md:py-24 px-4">

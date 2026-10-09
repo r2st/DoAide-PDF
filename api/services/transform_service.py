@@ -52,6 +52,22 @@ def add_watermark(input_path: str, text: str, opacity: float = 0.3, font_size: i
     return output
 
 
+def reorder_pages(input_path: str, order: list[int]) -> str:
+    reader = PdfReader(input_path)
+    writer = PdfWriter()
+    total = len(reader.pages)
+
+    for page_num in order:
+        if page_num < 1 or page_num > total:
+            raise ValueError(f"Page {page_num} out of range (1-{total})")
+        writer.add_page(reader.pages[page_num - 1])
+
+    output = get_temp_path(".pdf")
+    writer.write(output)
+    writer.close()
+    return output
+
+
 def add_page_numbers(
     input_path: str,
     position: str = "bottom-center",

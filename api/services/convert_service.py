@@ -9,7 +9,6 @@ from reportlab.lib.units import inch
 from docx import Document
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
-import weasyprint
 from utils import get_temp_path
 
 
@@ -115,6 +114,8 @@ def docx_to_pdf(input_path: str) -> str:
 
 
 def html_to_pdf(html_content: str | None = None, url: str | None = None) -> str:
+    import weasyprint
+
     output = get_temp_path(".pdf")
     if url:
         weasyprint.HTML(url=url).write_pdf(output)
