@@ -11,6 +11,51 @@ export default function Home() {
           name="description"
           content="Free online PDF tools — merge, split, compress, convert, rotate, watermark, and more. No login required. 100% free."
         />
+        <link rel="canonical" href="https://pdf.doaide.com/" />
+        <meta property="og:title" content="DoAide PDF — Free Online PDF Tools" />
+        <meta
+          property="og:description"
+          content="Free online PDF tools — merge, split, compress, convert, rotate, watermark, and more. No login required."
+        />
+        <meta property="og:url" content="https://pdf.doaide.com/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="DoAide PDF" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            name: "DoAide PDF",
+            url: "https://pdf.doaide.com",
+            description:
+              "Free online PDF tools — merge, split, compress, convert, rotate, watermark, and more. No login required.",
+            applicationCategory: "UtilityApplication",
+            operatingSystem: "Any",
+            offers: {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "USD",
+            },
+            creator: {
+              "@type": "Organization",
+              name: "DoAide",
+              url: "https://doaide.com",
+            },
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://pdf.doaide.com",
+              },
+            ],
+          })}
+        </script>
       </Helmet>
 
       <section className="py-16 md:py-24 px-4">

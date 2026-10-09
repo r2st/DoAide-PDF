@@ -15,6 +15,12 @@ export default function Header() {
           >
             All Tools
           </Link>
+          <Link
+            to="/blog"
+            className="text-gray-600 hover:text-gray-900 text-sm font-medium no-underline"
+          >
+            Blog
+          </Link>
           <a
             href="https://doaide.com"
             target="_blank"

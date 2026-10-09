@@ -125,6 +125,44 @@ export default function ToolPage() {
       <Helmet>
         <title>{tool.seo.title}</title>
         <meta name="description" content={tool.seo.description} />
+        <link rel="canonical" href={`https://pdf.doaide.com${tool.path}`} />
+        <meta property="og:title" content={tool.seo.title} />
+        <meta property="og:description" content={tool.seo.description} />
+        <meta property="og:url" content={`https://pdf.doaide.com${tool.path}`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="DoAide PDF" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            name: tool.name,
+            description: tool.seo.description,
+            url: `https://pdf.doaide.com${tool.path}`,
+            applicationCategory: "UtilityApplication",
+            operatingSystem: "Any",
+            offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://pdf.doaide.com",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: tool.name,
+                item: `https://pdf.doaide.com${tool.path}`,
+              },
+            ],
+          })}
+        </script>
       </Helmet>
 
       <div className="max-w-3xl mx-auto px-4 py-8">
