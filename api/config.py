@@ -4,9 +4,9 @@ from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     host: str = "172.18.0.1"
-    port: int = 3048
+    port: int = 3075
     max_file_size_mb: int = 50
-    allowed_origins: str = "http://localhost:3049,https://pdf.doaide.com"
+    allowed_origins: str = "http://localhost:3076,https://pdf.doaide.com"
     temp_dir: str = "/tmp/doaide-pdf"
 
     @property

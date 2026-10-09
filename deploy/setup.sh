@@ -27,4 +27,4 @@ systemctl daemon-reload
 systemctl enable doaide-pdf-api doaide-pdf-web
 systemctl restart doaide-pdf-api doaide-pdf-web
 
-echo "==> Done! API on :3048, Web on :3049"
+echo "==> Done! API on :3075, Web on :3076"
