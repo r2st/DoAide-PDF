@@ -96,6 +96,22 @@ export default function BlogPost() {
             ],
           })}
         </script>
+        {post.faqs && post.faqs.length > 0 && (
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: post.faqs.map((faq) => ({
+                "@type": "Question",
+                name: faq.question,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: faq.answer,
+                },
+              })),
+            })}
+          </script>
+        )}
       </Helmet>
 
       <div className="max-w-3xl mx-auto px-4 py-8">
