@@ -19,7 +19,7 @@ export default function BlogPost() {
         <h2 className="text-2xl font-bold text-gray-900 mb-4">
           Post not found
         </h2>
-        <Link to="/blog" className="text-gold-500 hover:underline">
+        <Link to="/blog" className="text-da-500 hover:underline">
           Back to blog
         </Link>
       </div>
@@ -167,7 +167,7 @@ export default function BlogPost() {
                   <Link
                     key={tool.id}
                     to={tool.path}
-                    className="flex items-center gap-3 bg-white border border-gray-100 rounded-lg p-4 hover:border-gold-400 hover:shadow transition-all no-underline"
+                    className="flex items-center gap-3 bg-white border border-gray-100 rounded-lg p-4 hover:border-da-500 hover:shadow transition-all no-underline"
                   >
                     <div
                       className={`w-10 h-10 ${tool.color} rounded-lg flex items-center justify-center flex-shrink-0`}

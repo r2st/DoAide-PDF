@@ -38,7 +38,7 @@ export default function Blog() {
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             PDF Tips &{" "}
-            <span className="italic text-gold-400">Guides</span>
+            <span className="text-da-500">Guides</span>
           </h1>
           <p className="text-lg text-gray-500">
             Practical advice for working with PDF files — free tools, how-to
@@ -53,7 +53,7 @@ export default function Blog() {
             <Link
               key={post.slug}
               to={`/blog/${post.slug}`}
-              className="block bg-white rounded-xl border border-gray-100 p-6 hover:shadow-lg hover:border-gold-400 transition-all no-underline"
+              className="block bg-white rounded-xl border border-gray-100 p-6 hover:shadow-lg hover:border-da-500 transition-all no-underline"
             >
               <h2 className="text-xl font-bold text-gray-900 mb-2">
                 {post.title}

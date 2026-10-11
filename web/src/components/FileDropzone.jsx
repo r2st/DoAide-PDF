@@ -55,8 +55,8 @@ export default function FileDropzone({
         {...getRootProps()}
         className={`border-2 border-dashed rounded-xl p-10 text-center cursor-pointer transition-colors ${
           isDragActive
-            ? "border-gold-400 bg-yellow-50"
-            : "border-gray-300 hover:border-gold-400 hover:bg-gray-50"
+            ? "border-da-500 bg-teal-50"
+            : "border-gray-300 hover:border-da-500 hover:bg-gray-50"
         }`}
       >
         <input {...getInputProps()} />

@@ -4,9 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        gold: {
-          400: "#F0B429",
-          500: "#D99E1E",
+        da: {
+          500: "#0D9488",
+          600: "#0B7C72",
         },
       },
     },

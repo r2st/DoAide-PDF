@@ -35,7 +35,7 @@ export default function ToolPage() {
         <h2 className="text-2xl font-bold text-gray-900 mb-4">
           Tool not found
         </h2>
-        <Link to="/" className="text-gold-500 hover:underline">
+        <Link to="/" className="text-da-500 hover:underline">
           Back to all tools
         </Link>
       </div>
@@ -356,7 +356,7 @@ export default function ToolPage() {
               <button
                 onClick={handleEditMetadata}
                 disabled={loading}
-                className="mt-3 w-full bg-gold-400 text-white py-2 rounded-lg font-medium hover:bg-gold-500 disabled:opacity-50"
+                className="mt-3 w-full bg-da-500 text-white py-2 rounded-lg font-medium hover:bg-da-600 disabled:opacity-50"
               >
                 Save Metadata
               </button>
@@ -387,7 +387,7 @@ export default function ToolPage() {
               href="https://doaide.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gold-400 hover:underline"
+              className="text-da-500 hover:underline"
             >
               DoAide
             </a>{" "}

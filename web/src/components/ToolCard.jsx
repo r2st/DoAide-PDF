@@ -5,7 +5,7 @@ export default function ToolCard({ tool }) {
   return (
     <Link
       to={tool.path}
-      className="group block bg-white rounded-xl border border-gray-100 p-6 hover:shadow-lg hover:border-gold-400 transition-all no-underline"
+      className="group block bg-white rounded-xl border border-gray-100 p-6 hover:shadow-lg hover:border-da-500 transition-all no-underline"
     >
       <div
         className={`w-12 h-12 ${tool.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}

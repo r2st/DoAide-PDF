@@ -262,7 +262,7 @@ const tools = [
     description: "Rearrange pages in your PDF in any order",
     icon: FaSortNumericDown,
     path: "/reorder",
-    color: "bg-amber-500",
+    color: "bg-emerald-500",
     api: "/api/reorder",
     accepts: ".pdf",
     multiple: false,

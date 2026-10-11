@@ -107,7 +107,7 @@ export default function Home() {
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Free Online{" "}
-            <span className="italic text-gold-400">PDF Tools</span>
+            <span className="text-da-500">PDF Tools</span>
           </h1>
           <p className="text-lg text-gray-500 mb-2">
             Merge, split, compress, convert, and edit PDFs — completely free.
