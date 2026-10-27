@@ -205,7 +205,7 @@ const tools = [
   {
     id: "html-to-pdf",
     name: "HTML to PDF",
-    description: "Convert HTML content or a URL to PDF",
+    description: "Convert self-contained HTML content to PDF",
     icon: FaCode,
     path: "/html-to-pdf",
     color: "bg-gray-600",
@@ -215,12 +215,11 @@ const tools = [
     noFile: true,
     fields: [
       { name: "html", label: "HTML Content", type: "textarea", placeholder: "<h1>Hello World</h1>" },
-      { name: "url", label: "Or enter a URL", placeholder: "https://example.com" },
     ],
     seo: {
       title: "HTML to PDF — Convert Webpage to PDF Free | DoAide PDF",
       description:
-        "Convert HTML content or any URL to PDF for free online.",
+        "Convert self-contained HTML content to PDF for free online.",
     },
   },
   {

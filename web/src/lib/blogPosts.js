@@ -321,7 +321,7 @@ const blogPosts = [
 <p>Convert Word documents to PDF format with <a href="/word-to-pdf">Word to PDF</a>. The converter preserves headings, paragraphs, and table content. No Microsoft Office installation needed.</p>
 
 <h3>10. HTML to PDF — Save Webpages</h3>
-<p>Convert HTML content or any URL to a PDF document with <a href="/html-to-pdf">HTML to PDF</a>. Paste your HTML code or enter a webpage address, and download the rendered PDF.</p>
+<p>Convert self-contained HTML content to a PDF document with <a href="/html-to-pdf">HTML to PDF</a>. Paste your HTML code and download the rendered PDF. External resources and webpage URLs are not supported.</p>
 
 <h3>11. Page Numbers — Add Numbering</h3>
 <p>Add page numbers to any PDF with <a href="/page-numbers">Page Numbers</a>. Choose the position (top, bottom, left, right, centre) and set the starting number. Essential for long documents, manuscripts, and reports.</p>

@@ -131,6 +131,13 @@ export default function ToolPage() {
         <meta property="og:url" content={`https://pdf.doaide.com${tool.path}`} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="DoAide PDF" />
+        <meta property="og:image" content="https://pdf.doaide.com/og-image.svg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={tool.seo.title} />
+        <meta name="twitter:description" content={tool.seo.description} />
+        <meta name="twitter:image" content="https://pdf.doaide.com/og-image.svg" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -391,7 +398,7 @@ export default function ToolPage() {
             >
               DoAide
             </a>{" "}
-            — Your files are processed securely and deleted immediately.
+            — Completed exports are removed after delivery. Interrupted files expire within 24 hours.
           </p>
         </div>
       </div>

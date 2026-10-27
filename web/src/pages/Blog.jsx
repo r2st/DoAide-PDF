@@ -18,6 +18,13 @@ export default function Blog() {
         <meta property="og:url" content="https://pdf.doaide.com/blog" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="DoAide PDF" />
+        <meta property="og:image" content="https://pdf.doaide.com/og-image.svg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="PDF Tips & Guides — DoAide PDF Blog" />
+        <meta name="twitter:description" content="Practical guides and tips for working with PDF files." />
+        <meta name="twitter:image" content="https://pdf.doaide.com/og-image.svg" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

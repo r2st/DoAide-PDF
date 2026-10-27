@@ -47,7 +47,14 @@ export default function BlogPost() {
         />
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content="DoAide PDF" />
+        <meta property="og:image" content="https://pdf.doaide.com/og-image.svg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="article:published_time" content={post.date} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${post.title} | DoAide PDF`} />
+        <meta name="twitter:description" content={post.description} />
+        <meta name="twitter:image" content="https://pdf.doaide.com/og-image.svg" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
