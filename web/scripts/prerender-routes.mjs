@@ -26,7 +26,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = process.argv[2] || join(__dirname, "..", "dist");
 const TEMPLATE = readFileSync(join(DIST, "index.html"), "utf-8");
 const SITE = "https://pdf.doaide.com";
-const OG_IMAGE = `${SITE}/og-image.svg`;
+const OG_IMAGE = `${SITE}/og-image.png`;
 
 /* ---- dynamic import of routeMeta ---- */
 // routeMeta uses ESM imports of tools.js / blogPosts.js which use
@@ -73,23 +73,28 @@ const blogPosts = parseBlogSlugs();
 const routes = [
   {
     path: "/",
+    h1: "Free Online PDF Tools",
     title: "DoAide PDF — Free Online PDF Tools",
     description:
       "Free online PDF tools — merge, split, compress, convert, rotate, watermark, and more. No login required. 100% free.",
   },
   ...tools.map((t) => ({
     path: t.path,
+    // "Merge PDF Files Online — Free | DoAide PDF" → "Merge PDF Files Online"
+    h1: t.seo.title.split(/ — | \| /)[0],
     title: t.seo.title,
     description: t.seo.description,
   })),
   {
     path: "/blog",
+    h1: "PDF Tips & Guides",
     title: "PDF Tips & Guides — DoAide PDF Blog",
     description:
       "Practical guides and tips for working with PDF files. Learn how to merge, compress, convert, and manage PDFs for free.",
   },
   ...blogPosts.map((p) => ({
     path: `/blog/${p.slug}`,
+    h1: p.title,
     title: `${p.title} | DoAide PDF`,
     description: p.description,
   })),
@@ -101,6 +106,25 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
+}
+
+const ORG = { "@type": "Organization", name: "DoAide", url: "https://doaide.com" };
+
+// WebApplication for the tools, Blog for the index, BlogPosting for posts.
+function jsonLdFor(route, url) {
+  const base = { "@context": "https://schema.org", url, description: route.description, publisher: ORG };
+  if (route.path.startsWith("/blog/")) {
+    return { ...base, "@type": "BlogPosting", headline: route.h1, mainEntityOfPage: url, image: OG_IMAGE, author: ORG };
+  }
+  if (route.path === "/blog") return { ...base, "@type": "Blog", name: "DoAide PDF Blog" };
+  return {
+    ...base,
+    "@type": "WebApplication",
+    name: route.path === "/" ? "DoAide PDF" : route.h1,
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "Web",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
+  };
 }
 
 let written = 0;
@@ -159,6 +183,11 @@ for (const route of routes) {
     /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/?>/,
     `<meta name="twitter:description" content="${safeDesc}" />`
   );
+
+  const ld = JSON.stringify(jsonLdFor(route, canonical)).replace(/</g, "\\u003c");
+  html = html.replace("</head>", () => `  <script type="application/ld+json">${ld}</script>\n  </head>`);
+  // A crawler-visible h1; React replaces #root's children on mount.
+  html = html.replace('<div id="root"></div>', () => `<div id="root"><h1>${escapeHtml(route.h1)}</h1></div>`);
 
   // Determine output path
   const outDir =
